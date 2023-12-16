@@ -1,0 +1,22 @@
+/* app/assets/stylesheets/application.css */
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .center-container {
+    text-align: center;
+  }
+  
+  .form-container {
+    width: 300px;
+    margin: auto;
+  }
+  
+  #error_explanation {
+    color: red;
+  }
+  
+  

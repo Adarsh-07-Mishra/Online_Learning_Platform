@@ -1,0 +1,20 @@
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="password_confirmation"] {
+  width: 400px; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+}
+
+
+/* Inside devise_styles.css */
+
+body {
+  background-image: url('signup2.webp'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 110vh; 
+}
+
