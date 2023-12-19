@@ -1,0 +1,10 @@
+<!-- app/views/documents/index.html.erb -->
+<h1><%= @subject.name %> Documents</h1>
+
+<% @documents.each do |document| %>
+  <div>
+    <%= link_to document.file.filename, document.file.url %>
+  </div>
+<% end %>
+
+<%= link_to 'Upload Document', new_subject_document_path(@subject) %>

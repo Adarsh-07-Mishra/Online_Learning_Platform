@@ -1,49 +1,60 @@
-<!-- app/views/home/index.html.erb -->
 <div class="center-container">
   <div class="form-container">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %>!</p>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <h2>Sign Up</h2>
+      <%= link_to 'Upload Document', new_document_path %>
 
-      <%= form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
-        <!-- Display errors if there are any -->
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-            <ul>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <!-- Your registration form fields go here -->
-
+      <h2>Your Documents</h2>
+      <% @documents.each do |document| %>
         <div>
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true %>
-        </div>
-
-        <div>
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div>
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-
-        <div>
-          <%= f.submit "Sign up" %>
+          <%= link_to document.file.filename, document.file.url %>
         </div>
       <% end %>
+    <% else %>
+      <div id="sign-up-section">
+        <h2>Sign Up</h2>
 
-      <!-- Display "Log in" link only when the user is not signed in -->
-      <%= link_to "Log in", new_user_session_path unless user_signed_in? %>
+        <%= form_for(@user, url: user_registration_path) do |f| %>
+          <!-- Display errors if there are any -->
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <!-- Your registration form fields go here -->
+
+          <div>
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div>
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div>
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div>
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="log-in-section">
+        <!-- Display "Log in" link only when the user is not signed in -->
+        <%= link_to "Log in", new_user_session_path unless user_signed_in? %>
+      </div>
     <% end %>
   </div>
 </div>
