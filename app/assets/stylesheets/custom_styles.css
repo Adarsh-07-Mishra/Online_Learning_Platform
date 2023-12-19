@@ -1,20 +1,29 @@
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="password_confirmation"] {
-  width: 400px; 
-  padding: 10px; 
-  margin-bottom: 15px; 
-}
-
-
-/* Inside devise_styles.css */
+/* app/assets/stylesheets/custom_styles.css */
 
 body {
-  background-image: url('signup2.webp'); 
+  background-image: url('blue-abstract-gradient-wave-wallpaper.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 110vh; 
+  height: 100vh; /* Set to 100vh instead of 110vh */
+  margin: 0; /* Remove default body margin */
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 20px; /* Add padding at the top for spacing */
+}
+
+/* Target specific input types within the form */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="password_confirmation"] {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+}

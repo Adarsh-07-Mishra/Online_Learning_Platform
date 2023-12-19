@@ -1,22 +1,149 @@
 /* app/assets/stylesheets/application.css */
-#container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+
+
+/* Updated center-container styles for new layout */
+.center-container {
+  display: flex;
+  flex-direction: row; /* Stack children horizontally */
+  align-items: center;
+}
+
+/* Add styles for the sidebar */
+.sidebar {
+  display: none;
+  width: 200px; /* Adjust the width as needed */
+  background-color: #f0f0f0; /* Add background color */
+  padding: 10px;
+  border-right: 1px solid #ccc; /* Add a border for separation */
+}
+
+.sidebar.active {
+  display: block;
+}
+
+/* Adjust form-container styles for new layout */
+.form-container {
+  width: 300px;
+  margin: auto;
+}
+
+#error_explanation {
+  color: red;
+}
+
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #ef9494;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-bottom: 10px;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar li i {
+  margin-right: 8px; /* Add spacing between icon and text */
+}
+
+/* Additional style for active link */
+.navbar li.active a {
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+}
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.content-container p {
+  margin-bottom: 10px; /* Add margin to create space between links */
+}
+
+/* Add this style to target document links specifically */
+.content-container p a {
+  display: block;
+}
+
+/* Add this style to target document buttons specifically */
+/* Add this style to target document buttons specifically */
+.content-container div.document-link {
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+}
+
+.content-container div.document-link input.document-button {
+  /* Add styling for document buttons */
+  padding: 10px; /* Adjust padding as needed */
+  margin-bottom: 10px; /* Add margin to create space between buttons */
+  background-color: #4285f4; /* Add your desired background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  text-decoration: none; /* Remove default text decoration */
+  cursor: pointer; /* Add cursor pointer on hover */
+}
+
+/* Add styling for the upload button */
+.upload-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #974a8a; /* Set the background color for the document button */
+  color: #fff; /* Set the text color for the document button */
+  text-decoration: none;
+  border-radius: 5px; /* Add rounded corners if desired */
+  transition: background-color 0.3s ease; /* Add a smooth transition for the background color change */
+
+  &:hover {
+    background-color: #a1113e; /* Set the background color on hover */
   }
-  
-  .center-container {
-    text-align: center;
+}
+.document-link {
+  margin-bottom: 10px; /* Adjust as needed to add space between document links */
+}
+
+.document-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #b5105a; /* Set the background color for the document button */
+  color: #dde1d9; /* Set the text color for the document button */
+  text-decoration: none;
+  border-radius: 5px; /* Add rounded corners if desired */
+  transition: background-color 0.3s ease; /* Add a smooth transition for the background color change */
+
+  &:hover {
+    background-color: #ca112a; /* Set the background color on hover */
   }
-  
-  .form-container {
-    width: 300px;
-    margin: auto;
-  }
-  
-  #error_explanation {
-    color: red;
-  }
-  
-  
+}

@@ -1,9 +1,17 @@
 # app/controllers/documents_controller.rb
 class DocumentsController < ApplicationController
   before_action :set_active_storage_url_options, only: [:index]
+  before_action :authenticate_user!, only: [:index, :new, :create]
+
 
   def index
-    @documents = current_user.documents
+    redirect_to action: :all_documents
+  end
+
+
+  def all_documents
+    @documents = Document.all
+    set_active_storage_url_options
   end
 
   def new
@@ -14,7 +22,7 @@ class DocumentsController < ApplicationController
     @document = current_user.documents.build(document_params)
 
     if @document.save
-      redirect_to root_path, notice: 'Document was successfully uploaded.'
+      redirect_to documents_path, notice: 'Document was successfully uploaded.'
     else
       render :new
     end

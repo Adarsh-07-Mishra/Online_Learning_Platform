@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   }
   root to: 'home#index'
   resources :documents, only: [:index, :new, :create]
+  get '/all_documents', to: 'documents#all_documents', as: 'all_documents'
 end
