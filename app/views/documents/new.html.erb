@@ -1,0 +1,5 @@
+<!-- app/views/documents/new.html.erb -->
+<%= form_for @document, url: documents_path, html: { multipart: true } do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit 'Upload Document' %>
+<% end %>
