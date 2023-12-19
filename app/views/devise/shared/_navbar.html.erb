@@ -1,0 +1,9 @@
+<!-- app/views/shared/_navbar.html.erb -->
+<nav class="navbar">
+  <ul>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'Documents', all_documents_path %></li>
+    <!-- Add more navigation links as needed -->
+    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+  </ul>
+</nav>

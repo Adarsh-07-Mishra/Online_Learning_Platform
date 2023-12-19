@@ -1,0 +1,9 @@
+<!-- app/views/documents/all_documents.html.erb -->
+
+<% @documents.each do |document| %>
+  <div class="document-link">
+    <%= link_to document.file.filename, document.file.url, class: 'document-button' %>
+  </div>
+<% end %>
+
+<%= link_to 'Upload Document', new_document_path, class: 'upload-button' %>
