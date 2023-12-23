@@ -147,3 +147,49 @@
     background-color: #ca112a; /* Set the background color on hover */
   }
 }
+
+.link-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #3498db; /* Set the background color for the link button */
+  color: #fff; /* Set the text color for the link button */
+  text-decoration: none;
+  border-radius: 5px; /* Add rounded corners if desired */
+  transition: background-color 0.3s ease; /* Add a smooth transition for the background color change */
+
+  &:hover {
+    background-color: #2980b9; /* Set the background color on hover */
+  }
+}
+
+.add-link-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #27ae60; /* Set the background color for the add link button */
+  color: #fff; /* Set the text color for the add link button */
+  text-decoration: none;
+  border-radius: 5px; /* Add rounded corners if desired */
+  transition: background-color 0.3s ease; /* Add a smooth transition for the background color change */
+
+  &:hover {
+    background-color: #219d54; /* Set the background color on hover */
+  }
+}
+
+.home-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #e74c3c; /* Set the background color for the home button */
+  color: #fff; /* Set the text color for the home button */
+  text-decoration: none;
+  border-radius: 5px; /* Add rounded corners if desired */
+  transition: background-color 0.3s ease; /* Add a smooth transition for the background color change */
+
+  &:hover {
+    background-color: #c0392b; /* Set the background color on hover */
+  }
+}
+
+.link-container {
+  margin-bottom: 10px; /* Adjust as needed to add space between links */
+}

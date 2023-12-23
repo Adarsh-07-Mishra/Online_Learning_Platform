@@ -1,0 +1,19 @@
+<!-- app/views/links/all_links.html.erb -->
+
+<h1>All Links</h1>
+
+<% if @links.any? %>
+  <ul>
+    <% @links.each do |link| %>
+        <div class="link-container">
+        <%= link_to link.title, link.url, target: '_blank', class: 'link-button' %>
+      </div>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No links saved yet.</p>
+<% end %>
+
+<%= link_to 'Add Link', new_link_path, class: 'add-link-button' %>
+
+<%= link_to 'Home', root_path, class: 'home-button' %>
