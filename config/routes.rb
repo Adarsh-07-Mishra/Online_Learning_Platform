@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'home#index'
-  resources :documents, only: [:index, :new, :create]
+  resources :documents, only: [:index, :new, :create, :destroy, :show]
   get '/all_documents', to: 'documents#all_documents', as: 'all_documents'
   resources :links do
     collection do

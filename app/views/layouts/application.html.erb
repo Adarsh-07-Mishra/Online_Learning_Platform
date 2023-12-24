@@ -1,17 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%= stylesheet_link_tag 'application', 'custom_styles', media: 'all' %>
+    <%= stylesheet_link_tag 'application', 'custom_styles', media: 'all' %>
     <title>ChatApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Include jQuery for simplicity in this example -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      /* Add a style for flash messages */
+      .flash-container {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000; /* Adjust the z-index as needed */
+      }
+
+      .flash {
+        padding: 10px;
+        margin: 10px auto;
+        border: 1px solid #3498db; /* Border color: Blue */
+        background-color: #2980b9; /* Background color: Darker Blue */
+        color: #ecf0f1; /* Text color: Light Gray */
+        display: inline-block;
+        border-radius: 5px; /* Add rounded corners */
+      }
+    </style>
+
   </head>
   <body>
     <div id="container">
       <%= yield %>
     </div>
+
+    <div class="flash-container">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+    <script>
+      // Automatically hide flash messages after 2 seconds
+      $(document).ready(function() {
+        setTimeout(function() {
+          $('.flash').fadeOut('slow');
+        }, 2000);
+      });
+    </script>
   </body>
 </html>
