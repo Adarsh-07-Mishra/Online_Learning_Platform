@@ -1,6 +1,6 @@
 # app/controllers/links_controller.rb
 class LinksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
 
   def index
     redirect_to action: :all_links
@@ -21,6 +21,16 @@ class LinksController < ApplicationController
       redirect_to links_path, notice: 'Link was successfully saved.'
     else
       render :new
+    end
+  end
+
+  def destroy
+    @link = current_user.links.find(params[:id])
+
+    if @link.destroy
+      redirect_to links_path, notice: 'Link was successfully deleted.'
+    else
+      redirect_to links_path, alert: 'Failed to delete the link.'
     end
   end
 

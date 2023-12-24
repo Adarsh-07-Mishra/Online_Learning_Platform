@@ -5,8 +5,9 @@
 <% if @links.any? %>
   <ul>
     <% @links.each do |link| %>
-        <div class="link-container">
+      <div class="link-container">
         <%= link_to link.title, link.url, target: '_blank', class: 'link-button' %>
+        <%= button_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-link-button' if current_user == link.user %>
       </div>
     <% end %>
   </ul>

@@ -1,17 +1,19 @@
-# app/controllers/documents_controller.rb
 class DocumentsController < ApplicationController
   before_action :set_active_storage_url_options, only: [:index]
-  before_action :authenticate_user!, only: [:index, :new, :create]
-
+  before_action :authenticate_user!, only: [:index, :new, :create, :destroy]
 
   def index
     redirect_to action: :all_documents
   end
 
-
   def all_documents
     @documents = Document.all
     set_active_storage_url_options
+  end
+
+  def show
+    @document = Document.find(params[:id])
+    head :no_content
   end
 
   def new
@@ -25,6 +27,17 @@ class DocumentsController < ApplicationController
       redirect_to documents_path, notice: 'Document was successfully uploaded.'
     else
       render :new
+    end
+  end
+
+  def destroy
+    @document = Document.find(params[:id])
+
+    if current_user == @document.user
+      @document.destroy
+      redirect_to documents_path, notice: 'Document was successfully destroyed.'
+    else
+      redirect_to documents_path, alert: 'You are not authorized to destroy this document.'
     end
   end
 
