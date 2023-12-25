@@ -1,10 +1,23 @@
 <!-- app/views/shared/_navbar.html.erb -->
 <nav class="navbar">
-  <ul>
+  <!-- User Information -->
+  <% if user_signed_in? %>
+    <div class="user-info">
+      <%= link_to root_path do %>
+        <%= image_tag current_user.profile_picture.url, alt: 'Profile Picture', class: 'profile-picture' if current_user.profile_picture? %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <ul class="navbar-items">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'Documents', all_documents_path %></li>
     <li><%= link_to 'Links', links_path %></li>
-    <!-- Add more navigation links as needed -->
-    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Login', new_user_session_path %></li>
+      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+    <% end %>
   </ul>
 </nav>

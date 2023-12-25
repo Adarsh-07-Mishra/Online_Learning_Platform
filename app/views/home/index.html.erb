@@ -4,62 +4,91 @@
     <!-- Add links to different sections -->
     <%= link_to 'All Documents', documents_path %>
   </div>
-
   <div class="content-container">
-    <% if user_signed_in? %>
-      <%= render 'devise/shared/navbar' %>
-    <% end %>
-
+  <% if user_signed_in? %>
+    <%= render 'devise/shared/navbar' %>
     <div class="center-container">
-      <div class="form-container">
-        <% if user_signed_in? %>
-          <p>Welcome, <%= current_user.email %>!</p>
-        <% else %>
-          <div id="sign-up-section">
-            <h2>Sign Up</h2>
-
-            <%= form_for(@user, url: user_registration_path) do |f| %>
-              <!-- Display errors if there are any -->
-              <% if @user.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-                  <ul>
-                    <% @user.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
-
-              <!-- Your registration form fields go here -->
-
-              <div>
-                <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true %>
-              </div>
-
-              <div>
-                <%= f.label :password %>
-                <%= f.password_field :password, autocomplete: "off" %>
-              </div>
-
-              <div>
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
-              </div>
-
-              <div>
-                <%= f.submit "Sign up" %>
-              </div>
-            <% end %>
-          </div>
-
-          <div id="log-in-section">
-            <!-- Display "Log in" link only when the user is not signed in -->
-            <%= link_to "Log in", new_user_session_path unless user_signed_in? %>
-          </div>
-        <% end %>
+      <div class="profile-container">
+      <h2 class="welcome-message">Welcome, <%= current_user.email %>!</h2>
+        <div class="user-details">
+          <p><strong>Email:</strong> <%= current_user.email %></p>
+          <p><strong>Address:</strong> <%= current_user.address %></p>
+          <p><strong>Date of Birth:</strong> <%= current_user.dob %></p>
+          <p><strong>Skills:</strong> <%= current_user.skills %></p>
+          <p><strong>Programming Languages:</strong> <%= current_user.programming_languages %></p>
+        </div>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'edit-button' %>
       </div>
     </div>
+    <% else %>
+      <div class="center-container">
+        <div class="form-container" id="sign-up-section">
+          <h2>Sign Up</h2>
+          <%= form_for(@user, url: user_registration_path) do |f| %>
+            <!-- Display errors if there are any -->
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <!-- Your registration form fields go here -->
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+
+            <div>
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div>
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div>
+              <%= f.label :address %>
+              <%= f.text_field :address %>
+            </div>
+
+            <div>
+              <%= f.label :dob %>
+              <%= f.date_field :dob %>
+            </div>
+
+            <div>
+              <%= f.label :skills %>
+              <%= f.text_field :skills %>
+            </div>
+
+            <div>
+              <%= f.label :programming_languages %>
+              <%= f.text_field :programming_languages %>
+            </div>
+
+            <div>
+              <%= f.label :profile_picture %>
+              <%= f.file_field :profile_picture %>
+            </div>
+
+            <div>
+              <%= f.submit "Sign up" %>
+            </div>
+          <% end %>
+
+          <!-- Display "Log in" link only when the user is not signed in -->
+          <div id="log-in-section">
+            <%= link_to "Log in", new_user_session_path unless user_signed_in? %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

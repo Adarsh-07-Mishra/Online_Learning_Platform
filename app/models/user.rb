@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          has_many :documents, dependent: :destroy
          has_many :links, dependent: :destroy
-end
+         validates_presence_of :address, :dob, :skills, :programming_languages
+         mount_uploader :profile_picture, ProfilePictureUploader
+        end
