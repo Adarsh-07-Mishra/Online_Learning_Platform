@@ -68,4 +68,8 @@ group :test do
 end
 
 gem 'devise'
+gem 'zeitwerk', '~> 2.6'
+gem 'carrierwave'
+
+
 

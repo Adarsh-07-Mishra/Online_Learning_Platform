@@ -193,3 +193,161 @@
 .link-container {
   margin-bottom: 10px; /* Adjust as needed to add space between links */
 }
+
+.profile-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center horizontally with auto margin */
+  max-width: 600px; /* Adjust the maximum width as needed */
+  width: 100%; /* Ensure it takes full width within the maximum width */
+}
+.user-details {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.user-details p {
+  margin-bottom: 10px;
+}
+
+.edit-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #27ae60; /* Set the background color for the edit button */
+  color: #fff; /* Set the text color for the edit button */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #219d54;
+  }
+}
+
+.welcome-message {
+  font-size: 24px;
+  color: #3498db; /* Set your desired color */
+  margin-bottom: 15px;
+}
+
+.profile-picture {
+  width: 80px; 
+  height: 80px; 
+  border-radius: 50%;
+  margin-left: 60px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.confirmation-info {
+  color: #ff9800; /* Orange color or your desired color */
+  margin-top: 10px;
+}
+
+.submit-button {
+  background-color: #4caf50; /* Green color or your desired color */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-title {
+  font-size: 18px;
+  color: #f44336; /* Red color or your desired color */
+  margin-top: 20px;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red color or your desired color */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #3498db; /* Blue color or your desired color */
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.dob-input-container {
+  position: relative;
+}
+
+.dob-input {
+  width: calc(100% - 20px); /* Adjust the width as needed */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dob-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 5px; /* Adjust the right offset as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+.upload-document-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #974a8a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #a1113e;
+  }
+}
