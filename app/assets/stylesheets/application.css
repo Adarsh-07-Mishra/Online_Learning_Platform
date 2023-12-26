@@ -239,6 +239,12 @@
   margin-left: 60px;
 }
 
+.profile-picture-small {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+  border-radius: 50%; /* Add border-radius for a circular shape */
+}
+
 .form-label {
   font-weight: bold;
 }
@@ -350,4 +356,60 @@
   &:hover {
     background-color: #a1113e;
   }
+}
+
+
+.disabled {
+  pointer-events: none;
+  color: gray;
+  text-decoration: none;
+}
+
+.page-title {
+  font-size: 24px;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.user-card, .friend-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.friends-badge {
+  background-color: #2ecc71; /* Green color for friends */
+  color: #fff;
+}
+
+.pending-badge {
+  background-color: #f39c12; /* Orange color for pending requests */
+  color: #fff;
+}
+
+.send-request-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #3498db; /* Blue color for the send request button */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+.friend-card {
+  background-color: #2ecc71; /* Green color for friend cards */
+  color: #fff;
 }

@@ -1,0 +1,11 @@
+<h1>Accepted Friends</h1>
+
+<ul>
+  <% @friends.each do |friend| %>
+    <li>
+      <%= friend.email %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', root_path %>

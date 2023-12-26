@@ -1,0 +1,16 @@
+<h1 class="page-title">All Users</h1>
+
+<% @users.each do |user| %>
+  <div class="user-card">
+    <%= image_tag user.profile_picture.url, alt: 'Profile Picture', class: 'profile-picture-small' if user.profile_picture.present? %>
+    <strong><%= user.email %></strong>
+    <span class="status-badge <%= user_already_friends?(user) ? 'friends-badge' : user_has_pending_request?(user) ? 'pending-badge' : '' %>">
+      <%= user_already_friends?(user) ? 'Friends' : user_has_pending_request?(user) ? 'Pending Request' : '' %>
+    </span>
+    <% unless user_already_friends?(user) || user_has_pending_request?(user) %>
+      <%= link_to 'Send Friend Request', send_friend_request_user_path(user), method: :post, class: 'send-request-button' %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'Home', root_path, class: 'home-button' %>
