@@ -7,17 +7,22 @@
         <%= image_tag current_user.profile_picture.url, alt: 'Profile Picture', class: 'profile-picture' if current_user.profile_picture? %>
       <% end %>
     </div>
-  <% end %>
-
-  <ul class="navbar-items">
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Documents', all_documents_path %></li>
-    <li><%= link_to 'Links', links_path %></li>
-    <% if user_signed_in? %>
+    <ul class="navbar-items">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Documents', all_documents_path %></li>
+      <li><%= link_to 'Links', links_path %></li>
+      <li><%= link_to 'All Users', all_users_path, class: 'all-users-button' %></li>
+      <li><%= link_to 'Friend Requests', friend_requests_user_path(current_user) %></li>
+      <li><%= link_to 'Friends', users_path %></li>
       <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-    <% else %>
+    </ul>
+  <% else %>
+    <ul class="navbar-items">
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Documents', all_documents_path %></li>
+      <li><%= link_to 'Links', links_path %></li>
       <li><%= link_to 'Login', new_user_session_path %></li>
       <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-    <% end %>
-  </ul>
+    </ul>
+  <% end %>
 </nav>

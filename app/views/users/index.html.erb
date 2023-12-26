@@ -1,0 +1,10 @@
+    <h1 class="page-title">Your Friends</h1>
+
+    <% @friends.each do |friend| %>
+      <div class="user-card friend-card">
+        <strong><%= friend.email %></strong>
+      </div>
+    <% end %>
+
+    <%= link_to 'Home', root_path, class: 'home-button' %>
+

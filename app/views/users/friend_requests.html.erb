@@ -1,0 +1,13 @@
+<h1>Friend Requests</h1>
+
+<ul>
+  <% @friend_requests.each do |friendship| %>
+    <li>
+      <%= friendship.user.email %> has sent you a friend request.
+      <%= link_to 'Accept', accept_friend_request_path(id: friendship.id), method: :post %>
+      <%= link_to 'Reject', reject_friend_request_path(id: friendship.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', root_path %>

@@ -1,0 +1,19 @@
+<!-- app/views/messages/index.html.erb -->
+<h1>Messages</h1>
+
+<% if @user.messages.present? %>
+  <ul>
+    <% @user.messages.each do |message| %>
+      <li>
+        <strong><%= message.sender.name %>:</strong> <%= message.content %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No messages.</p>
+<% end %>
+
+<%= form_with(model: [@user, Message.new], url: user_messages_path(@user), method: :post) do |form| %>
+  <%= form.text_field :content, placeholder: 'Type your message...' %>
+  <%= form.submit 'Send' %>
+<% end %>
