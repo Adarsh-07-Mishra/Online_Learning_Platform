@@ -1,0 +1,8 @@
+<!-- app/views/messages/_form.html.erb -->
+<%= form_for @message, url: messages_path, method: :post do |form| %>
+  <div class="message-form">
+    <%= form.hidden_field :receiver_id, value: @receiver.id %>
+    <%= form.text_area :content, placeholder: 'Type your message here...', class: 'message-content' %>
+    <%= button_tag 'Send Message', type: 'submit', class: 'send-button' %>
+  </div>
+<% end %>

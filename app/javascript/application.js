@@ -4,3 +4,4 @@ import "controllers"
 //= require "@hotwired/turbo-rails"
 //= require_tree .
 //= require_self
+import "channels"

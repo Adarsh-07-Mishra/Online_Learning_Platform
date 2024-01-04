@@ -4,7 +4,6 @@ class Friendship < ApplicationRecord
 
   enum status: { pending: 0, accepted: 1, rejected: 2 }
 
-
   def rejected!
     update(status: 'rejected')
   end

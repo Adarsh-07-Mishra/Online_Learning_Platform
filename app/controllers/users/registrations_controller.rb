@@ -25,15 +25,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :address, :dob, :skills, :programming_languages, :profile_picture])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :address, :dob, :skills, :programming_languages, :profile_picture])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: %i[email password password_confirmation address dob skills
+                                               programming_languages profile_picture])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: %i[email password password_confirmation current_password address dob skills programming_languages
+                                               profile_picture])
   end
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :address, :dob, :skills, :programming_languages, :profile_picture)
+    params.require(:user).permit(:email, :password, :password_confirmation, :address, :dob, :skills,
+                                 :programming_languages, :profile_picture)
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :address, :dob, :skills, :programming_languages, :profile_picture)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :address, :dob, :skills,
+                                 :programming_languages, :profile_picture)
   end
 end
