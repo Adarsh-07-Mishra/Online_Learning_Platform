@@ -7,7 +7,9 @@ class User < ApplicationRecord
 
   has_many :sent_friend_requests, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :received_friend_requests, class_name: 'Friendship', foreign_key: 'friend_id'
-  has_many :messages
+  has_many :messages, foreign_key: 'user_id'
+  has_many :received_messages, class_name: 'Message', foreign_key: 'friend_id'
+
   has_many :accepted_friendships, -> { where(status: 'accepted') }, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :accepted_friends, through: :accepted_friendships, source: 'friend'
 
@@ -46,5 +48,10 @@ class User < ApplicationRecord
     Friendship.where("(user_id = :user_id OR friend_id = :user_id) AND status = 'accepted'", user_id: id)
               .or(Friendship.where("(user_id = :user_id OR friend_id = :user_id) AND status = 'accepted'",
                                    user_id: id))
+  end
+
+  def chat_messages_with(user)
+    Message.where('(user_id = :user_id AND friend_id = :friend_id) OR (user_id = :friend_id AND friend_id = :user_id)',
+                  user_id: id, friend_id: user.id)
   end
 end

@@ -1,6 +1,6 @@
 # app/controllers/links_controller.rb
 class LinksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: %i[new create destroy]
 
   def index
     redirect_to action: :all_links

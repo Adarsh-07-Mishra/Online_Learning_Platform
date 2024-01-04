@@ -1,6 +1,6 @@
 # app/controllers/home_controller.rb
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :create]
+  before_action :authenticate_user!, except: %i[index create]
   before_action :set_active_storage_url_options, only: [:index]
 
   def index

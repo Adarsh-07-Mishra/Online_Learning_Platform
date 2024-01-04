@@ -1,10 +1,11 @@
-    <h1 class="page-title">Your Friends</h1>
+<h1 class="page-title">Your Friends</h1>
 
-    <% @friends.each do |friend| %>
-      <div class="user-card friend-card">
-        <strong><%= friend.email %></strong>
-      </div>
-    <% end %>
+<% @friends.each do |friend| %>
+  <div class="user-card friend-card">
+    <%= image_tag friend.profile_picture.url, alt: 'Profile Picture', class: 'profile-picture-small' if friend.profile_picture.present? %>
+    <strong><%= friend.email %></strong>
+    <%= link_to 'Send Message', new_message_path(receiver_id: friend.id), class: 'send-message-button reply-link' %>
+  </div>
+<% end %>
 
-    <%= link_to 'Home', root_path, class: 'home-button' %>
-
+<%= link_to 'Home', root_path, class: 'home-button' %>

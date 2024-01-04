@@ -1,0 +1,39 @@
+<!-- app/views/messages/new.html.erb -->
+<div class="chat-box">
+  <div class="chat-container">
+    <h1 class="chat-heading">Chat with <%= @receiver.email %></h1>
+
+    <!-- Display all messages between current_user and @receiver in reverse order -->
+    <div id="chat-box" class="message-container">
+      <% @chat_messages.reverse.each do |message| %>
+        <div class="message <%= message.user == current_user ? 'sent' : 'received' %>">
+          <strong><%= message.user.email %>:</strong>
+          <%= message.content %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Include the reply form -->
+    <%= render partial: 'form' %>
+
+    <!-- Home link at the bottom -->
+    <br>
+    <%= link_to 'Home', root_path, class: 'home-button' %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#message-form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const content = form.querySelector('#message_content').value;
+      const user_id = form.querySelector('#message_user_id').value;
+      const friend_id = form.querySelector('#message_friend_id').value;
+
+      App.message.send({ content, user_id, friend_id });
+      form.reset();
+    });
+  });
+</script>

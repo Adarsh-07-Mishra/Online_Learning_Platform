@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   def all_users
     @all_users = User.all
   end
-  
+
   def show
-   params[:id] == 'all_users'
-      @users = User.all
-      render 'all_users' 
+    params[:id]
+    @users = User.all
+    render 'all_users'
   end
 
   def send_friend_request
