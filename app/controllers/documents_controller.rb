@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DocumentsController < ApplicationController
   before_action :set_active_storage_url_options, only: [:index]
   before_action :authenticate_user!, only: %i[index new create destroy]
