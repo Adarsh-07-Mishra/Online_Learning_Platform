@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/models/document.rb
 class Document < ApplicationRecord
   belongs_to :user

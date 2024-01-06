@@ -9,6 +9,16 @@
         <div class="message <%= message.user == current_user ? 'sent' : 'received' %>">
           <strong><%= message.user.email %>:</strong>
           <%= message.content %>
+
+          <% if message.attachment.attached? %>
+            <% if message.attachment.image? %>
+              <%= link_to image_tag(message.attachment.variant(resize: '100x100')), rails_blob_path(message.attachment, only_path: true), target: '_blank' %>
+            <% elsif message.attachment.video? %>
+              <%= link_to "Watch Video", rails_blob_path(message.attachment, only_path: true), target: '_blank' %>
+            <% else %>
+              <%= link_to "Download Attachment", rails_blob_path(message.attachment, only_path: true), target: '_blank' %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>

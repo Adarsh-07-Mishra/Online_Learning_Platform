@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # db/migrate/xxx_create_friendships.rb
 class CreateFriendships < ActiveRecord::Migration[6.0]
   def change

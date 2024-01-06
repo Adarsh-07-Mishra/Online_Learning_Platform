@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/links_controller.rb
 class LinksController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
