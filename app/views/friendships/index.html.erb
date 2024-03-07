@@ -1,13 +1,17 @@
 <!-- app/views/friendships/index.html.erb -->
-<h1>Friend Requests</h1>
+<h1 class="page-title">Friend Requests</h1>
 
 <% if current_user.pending_friend_requests.present? %>
-  <ul>
+  <ul class="user-card-list">
     <% current_user.pending_friend_requests.each do |request| %>
-      <li>
-        <%= request.user.name %> has sent you a friend request.
-        <%= link_to 'Accept', friendship_path(request), method: :put %>
-        <%= link_to 'Reject', friendship_path(request), method: :delete %>
+      <li class="user-card friend-request">
+        <p class="user-details">
+          <%= request.user.name %> has sent you a friend request.
+        </p>
+        <div class="button-container">
+          <%= link_to 'Accept', friendship_path(request), method: :put, class: 'send-button' %>
+          <%= link_to 'Reject', friendship_path(request), method: :delete, class: 'send-button reject-button' %>
+        </div>
       </li>
     <% end %>
   </ul>
