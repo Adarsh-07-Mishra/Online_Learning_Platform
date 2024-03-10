@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   has_many :documents, dependent: :destroy
   has_many :links, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
 
   has_many :sent_friend_requests, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :received_friend_requests, class_name: 'Friendship', foreign_key: 'friend_id'
@@ -71,13 +75,5 @@ class User < ApplicationRecord
       )
     end
     user
-  end
-
-  def self.ransackable_attributes(auth_object = nil)
-    %w[id email address skills programming_languages created_at updated_at] # Add the attributes you want to make searchable
-  end
-
-  def self.ransackable_associations(auth_object = nil)
-    %w[accepted_friends accepted_friendships documents friendships links messages received_friend_requests received_friendships received_messages sent_friend_requests sent_friendships]
   end
 end

@@ -1,0 +1,24 @@
+<!-- app/views/posts/show.html.erb -->
+
+<%= render 'posts/post', post: @post %>
+
+<div class="comments-section">
+  <!-- Display existing comments -->
+  <% @post.comments.each do |comment| %>
+    <div class="comment-container">
+      <% if comment.user.present? %>
+        <p class="comment-user"><strong><%= comment.user.email %></strong></p>
+      <% else %>
+        <p class="comment-user"><strong>Anonymous User</strong></p>
+      <% end %>
+      <p class="comment-content"><%= comment.content %></p>
+    </div>
+  <% end %>
+
+  <!-- Comment form -->
+  <%= form_with(model: [@post, @comment], url: comment_post_path(@post), method: :post, remote: true, class: 'comment-form') do |form| %>
+    <%= form.text_field :content, placeholder: 'Add a comment...', class: 'form-input' %>
+    <%= form.submit 'Comment', class: 'submit-button' %>
+  <% end %>
+</div>
+

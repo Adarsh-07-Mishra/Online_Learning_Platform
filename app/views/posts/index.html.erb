@@ -1,0 +1,26 @@
+<%= link_to 'New Post', new_post_path, class: 'link-button' %>
+
+<div class="posts-container">
+  <% @posts.each do |post| %>
+    <div class="post-box">
+      <div class="user-info">
+        <p class="user-details"><strong><%= post.user.email %></strong></p>
+      </div>
+      <div class="post-content">
+        <p class="post-text"><%= post.content %></p>
+        <% if post.media.attached? %>
+          <%= image_tag post.media.variant(resize_to_limit: [400, 400]).processed, class: 'post-image' %>
+        <% end %>
+      </div>
+      <div class="interactions">
+        <%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'destroy-button' if current_user == post.user %>
+        <%= button_to 'Like', like_post_path(post), method: :post, remote: true, class: 'like-button' %>
+        <span><%= post.likes.count %> Likes</span>
+      </div>
+      <%= link_to 'Comments', post_path(post), class: 'view-comments-button' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Home', root_path, class: 'home-button' %>

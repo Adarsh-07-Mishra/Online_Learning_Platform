@@ -50,4 +50,10 @@ Rails.application.routes.draw do
   end
 
   get 'users/all_users', to: 'users#all_users', as: 'all_users'
+  resources :posts do
+    member do
+      post 'like'
+      post 'comment'
+    end
+  end
 end
