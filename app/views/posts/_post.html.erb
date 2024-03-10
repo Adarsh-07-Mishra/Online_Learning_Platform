@@ -1,0 +1,16 @@
+<!-- app/views/posts/_post.html.erb -->
+
+<div class="post-box">
+  <p class="post-user"><strong><%= @post.user.email %></strong></p>
+  <p class="post-text"><%= @post.content %></p>
+
+  <% if @post.media.attached? %>
+  <%= image_tag post.media.variant(resize_to_limit: [400, 400]).processed, class: 'post-image' %>
+  <% end %>
+
+  <!-- Add other post-related elements here -->
+
+  <div class="interactions">
+    <!-- Add buttons for interactions (destroy, like, etc.) here -->
+  </div>
+</div>
