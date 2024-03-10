@@ -73,5 +73,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'zeitwerk', '~> 2.6'
 gem 'omniauth-google-oauth2'
+gem 'byebug'
+gem 'rubocop'
 
 
