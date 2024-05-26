@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   def index
     @user = User.new
     @documents = Document.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def create

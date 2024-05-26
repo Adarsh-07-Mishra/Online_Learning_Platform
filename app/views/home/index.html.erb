@@ -10,13 +10,7 @@
     <div class="center-container">
       <div class="profile-container">
       <h2 class="welcome-message">Welcome, <%= current_user.email %>!</h2>
-        <div class="user-details">
-          <p><strong>Email:</strong> <%= current_user.email %></p>
-          <p><strong>Address:</strong> <%= current_user.address %></p>
-          <p><strong>Date of Birth:</strong> <%= current_user.dob %></p>
-          <p><strong>Skills:</strong> <%= current_user.skills %></p>
-          <p><strong>Programming Languages:</strong> <%= current_user.programming_languages %></p>
-        </div>
+      <%= render 'posts/posts' %>
         <%= link_to 'Edit Profile', edit_user_registration_path, class: 'edit-button' %>
       </div>
     </div>

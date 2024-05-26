@@ -1,5 +1,7 @@
 /* app/assets/stylesheets/application.css */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 /* Updated center-container styles for new layout */
 .center-container {
@@ -35,9 +37,9 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 200px;
+  width: 250px;
   height: 100vh;
-  background-color: #ef9494;
+  background-color: hsl(50, 33%, 25%);
   color: #fff;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -195,12 +197,13 @@
 }
 
 .profile-container {
+  position: static;
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto; /* Center horizontally with auto margin */
-  max-width: 600px; /* Adjust the maximum width as needed */
+  max-width: 1200px; /* Adjust the maximum width as needed */
   width: 100%; /* Ensure it takes full width within the maximum width */
 }
 .user-details {
@@ -229,8 +232,11 @@
 .welcome-message {
   font-size: 24px;
   color: #3498db; /* Set your desired color */
+  margin: auto;
+  text-align: center;
   margin-bottom: 15px;
 }
+
 
 .profile-picture {
   width: 80px; 
