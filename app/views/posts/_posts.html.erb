@@ -1,6 +1,6 @@
-<%= link_to 'New Post', new_post_path, class: 'link-button' %>
+<!-- app/views/posts/_posts.html.erb -->
 
-<!--<div class="posts-container">
+<div class="posts-container">
   <% @posts.each do |post| %>
     <div class="post-box">
       <div class="user-info">
@@ -18,9 +18,7 @@
         <span><%= post.likes.count %> Likes</span>
       </div>
       <%= link_to 'Comments', post_path(post), class: 'view-comments-button' %>
-      </div>
     </div>
   <% end %>
-</div>-->
+</div>
 
-<%= link_to 'Home', root_path, class: 'home-button' %>

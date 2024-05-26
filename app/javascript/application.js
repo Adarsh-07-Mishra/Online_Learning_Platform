@@ -5,3 +5,7 @@ import "controllers"
 //= require_tree .
 //= require_self
 import "channels"
+
+
+//= require jquery
+//= require jquery_ujs

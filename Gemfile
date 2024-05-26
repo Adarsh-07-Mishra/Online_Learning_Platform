@@ -78,3 +78,7 @@ gem 'rubocop'
 gem 'mini_magick'
 
 
+
+gem "sassc", "~> 2.4"
+gem 'bootstrap-sass'
+

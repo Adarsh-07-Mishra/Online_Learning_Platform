@@ -1,7 +1,9 @@
 /* app/assets/stylesheets/custom_styles.css */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
-  background-image: url('blue-abstract-gradient-wave-wallpaper.jpg');
+  /* background-image: url('blue-abstract-gradient-wave-wallpaper.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
